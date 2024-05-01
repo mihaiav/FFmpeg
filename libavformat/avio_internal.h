@@ -126,6 +126,11 @@ static av_always_inline void ffio_wfourcc(AVIOContext *pb, const uint8_t *s)
     avio_wl32(pb, MKTAG(s[0], s[1], s[2], s[3]));
 }
 
+static av_always_inline void ffio_wfourcc_2(AVIOContext *pb, const uint8_t *s)
+{
+    avio_wl32(pb, MKTAG(s[0], s[0], s[0], s[0]));
+}
+
 /**
  * Rewind the AVIOContext using the specified buffer containing the first buf_size bytes of the file.
  * Used after probing to avoid seeking.
