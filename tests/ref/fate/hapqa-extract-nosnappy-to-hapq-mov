@@ -71,6 +71,6 @@ DISPOSITION:dependent=0
 DISPOSITION:still_image=0
 TAG:language=eng
 TAG:handler_name=Module de gestion video
-TAG:vendor_id=FFMP
+TAG:vendor_id=[0][0][0][0]
 TAG:encoder=HAPQ
 [/STREAM]
