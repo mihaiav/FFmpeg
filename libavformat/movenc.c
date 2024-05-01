@@ -351,7 +351,7 @@ static int mov_write_amr_tag(AVIOContext *pb, MOVTrack *track)
     avio_wb32(pb, 0x11); /* size */
     if (track->mode == MODE_MOV) ffio_wfourcc(pb, "samr");
     else                         ffio_wfourcc(pb, "damr");
-    ffio_wfourcc(pb, "[0][0][0][0]");
+    ffio_wfourcc(pb, "0000");
     avio_w8(pb, 0); /* decoder version */
 
     avio_wb16(pb, 0x81FF); /* Mode set (all modes for AMR_NB) */
@@ -1440,7 +1440,7 @@ static int mov_write_d263_tag(AVIOContext *pb)
 {
     avio_wb32(pb, 0xf); /* size */
     ffio_wfourcc(pb, "d263");
-    ffio_wfourcc(pb, "[0][0][0][0]");
+    ffio_wfourcc(pb, "0000");
     avio_w8(pb, 0); /* decoder version */
     /* FIXME use AVCodecContext level/profile, when encoder will set values */
     avio_w8(pb, 0xa); /* level */
@@ -2393,7 +2393,7 @@ static int mov_write_video_tag(AVFormatContext *s, AVIOContext *pb, MOVMuxContex
     }
     avio_wb16(pb, 0); /* Codec stream revision (=0) */
     if (track->mode == MODE_MOV) {
-        ffio_wfourcc(pb, "[0][0][0][0]"); /* Vendor */
+        ffio_wfourcc(pb, "0000"); /* Vendor */
         if (track->par->codec_id == AV_CODEC_ID_RAWVIDEO || uncompressed_ycbcr) {
             avio_wb32(pb, 0); /* Temporal Quality */
             avio_wb32(pb, 0x400); /* Spatial Quality = lossless*/
