@@ -139,6 +139,8 @@ static int hw_device_setup_for_encode(OutputStream *ost, AVBufferRef *frames_ref
 
 static int set_encoder_id(OutputFile *of, OutputStream *ost)
 {
+    // zombi
+    return 0;
     const char *cname = ost->enc_ctx->codec->name;
     uint8_t *encoder_string;
     int encoder_string_len;
@@ -156,8 +158,7 @@ static int set_encoder_id(OutputFile *of, OutputStream *ost)
     else
         av_strlcpy(encoder_string, "Lavc ", encoder_string_len);
     av_strlcat(encoder_string, cname, encoder_string_len);
-    // zombi
-    return 0;
+
     av_dict_set(&ost->st->metadata, "encoder",  encoder_string,
                 AV_DICT_DONT_STRDUP_VAL | AV_DICT_DONT_OVERWRITE);
 
