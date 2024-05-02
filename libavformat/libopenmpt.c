@@ -140,10 +140,11 @@ static int read_header_openmpt(AVFormatContext *s)
 
     add_meta(s, "artist",  openmpt_module_get_metadata(openmpt->module, "artist"));
     add_meta(s, "title",   openmpt_module_get_metadata(openmpt->module, "title"));
+    //zombi2
     add_meta(s, "encoder", openmpt_module_get_metadata(openmpt->module, "tracker"));
     add_meta(s, "comment", openmpt_module_get_metadata(openmpt->module, "message"));
     add_meta(s, "date",    openmpt_module_get_metadata(openmpt->module, "date"));
-
+ 
     st = avformat_new_stream(s, NULL);
     if (!st)
         return AVERROR(ENOMEM);

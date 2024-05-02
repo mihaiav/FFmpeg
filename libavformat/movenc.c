@@ -4524,7 +4524,8 @@ static int mov_write_udta_tag(AVIOContext *pb, MOVMuxContext *mov,
         mov_write_string_metadata(s, pb_buf, "\251aut", "author",      0);
         mov_write_string_metadata(s, pb_buf, "\251alb", "album",       0);
         mov_write_string_metadata(s, pb_buf, "\251day", "date",        0);
-        mov_write_string_metadata(s, pb_buf, "\251swr", "encoder",     0);
+        // zombi2
+     //   mov_write_string_metadata(s, pb_buf, "\251swr", "encoder",     0);
         // currently ignored by mov.c
         mov_write_string_metadata(s, pb_buf, "\251des", "comment",     0);
         // add support for libquicktime, this atom is also actually read by mov.c
